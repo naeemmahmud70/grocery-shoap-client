@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useContext } from 'react';
+import { Link, useParams } from 'react-router-dom';
+import { UserContext } from '../../App';
+import PlaceOrder from '../PlaceOrder/PlaceOrder';
 
 
 const Product = () => {
@@ -8,6 +11,8 @@ const Product = () => {
     const { name, price } = item;
     console.log(name, price)
 
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext)
+
 
     useEffect(() => {
         fetch('http://localhost:5000/product/' + id)
@@ -15,6 +20,21 @@ const Product = () => {
             .then(data => setItem(data))
     }, [id])
 
+    const handleCheckOut=()=>{
+        const newCheckOut = {...loggedInUser, ...item}
+       fetch('http://localhost:5000/addCheckOut',{
+           method: 'POST',
+           headers: {'Content-type' : 'application/json'},
+           body: JSON.stringify(newCheckOut)
+       })
+       .then(res => res.json())
+       .then(data => {
+           console.log(data)
+       })
+
+    }
+
+    
     return (
         <div>
             <h3>CheckOut</h3>
@@ -43,8 +63,9 @@ const Product = () => {
            
            
             <div className="d-flex justify-content-end">
-                <button>CheckOut</button>
+                <Link to="/placeOrder"><button onClick={handleCheckOut}>CheckOut</button></Link>
             </div>
+    
             </div>
         </div>
     );

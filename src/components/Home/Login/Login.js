@@ -23,10 +23,10 @@ const Login = () => {
             .signInWithPopup(provider)
             .then(result => {
                 const { displayName, email } = result.user;
-                const signInUser = { name: displayName, email }
+                const signInUser = { Name: displayName, email }
                 setLoggedInUser(signInUser)
                 history.replace(from)
-                console.log(signInUser.email)
+                
                
 
             }).catch((error) => {

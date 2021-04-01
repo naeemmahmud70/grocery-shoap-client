@@ -13,6 +13,7 @@ import Header from './components/Home/Header/Header';
 import Product from './components/Product/Product';
 import { createContext, useState } from 'react';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import PlaceOrder from './components/PlaceOrder/PlaceOrder';
 
 export const UserContext = createContext();
 
@@ -39,6 +40,10 @@ function App() {
 
           <Route path="/order">
             <Order></Order>
+          </Route>
+
+          <Route path="/placeOrder">
+            <PlaceOrder></PlaceOrder>
           </Route>
 
           <Route path="/admin">
