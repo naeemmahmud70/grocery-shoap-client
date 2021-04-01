@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 const Product = () => {
     const { id } = useParams();
     const [item, setItem] = useState({});
-    const {name, price} = item;
+    const { name, price } = item;
     console.log(name, price)
 
 
@@ -17,8 +17,35 @@ const Product = () => {
 
     return (
         <div>
-            <h1>Product name: {name}</h1>
-            <h3>Price: {price}</h3>
+            <h3>CheckOut</h3>
+            <div className="shadow p-3">
+                <table class="table mt-3">
+                    <thead>
+                        <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{name}</td>
+                            <td>1</td>
+                            <td>${price}</td>
+                        </tr>
+                        <tr>
+                            <td>Total =</td>
+                            <td></td>
+                            <td>${price}</td>
+                        </tr>
+                    </tbody>
+                </table>
+           
+           
+            <div className="d-flex justify-content-end">
+                <button>CheckOut</button>
+            </div>
+            </div>
         </div>
     );
 };

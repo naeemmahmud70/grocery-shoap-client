@@ -11,23 +11,31 @@ import Order from './components/Home/Order/Order';
 import Admin from './components/Home/Admin/Admin';
 import Header from './components/Home/Header/Header';
 import Product from './components/Product/Product';
+import { createContext, useState } from 'react';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+
+export const UserContext = createContext();
+
+
+
+
 
 
 function App() {
+  const [loggedInUser, setLoggedInUser] = useState({});
   return (
     <div className="container">
+    <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
       <Router>
-      <div>
-      <Header></Header>
-      </div>
+        <Header></Header>
         <Switch>
           <Route path="/home">
             <Home></Home>
           </Route>
 
-          <Route path="/product/:id">
-           <Product></Product>
-          </Route>
+          <PrivateRoute path="/product/:id">
+            <Product></Product>
+          </PrivateRoute>
 
           <Route path="/order">
             <Order></Order>
@@ -51,8 +59,8 @@ function App() {
 
         </Switch>
       </Router>
-
-    </div>
+      </UserContext.Provider>
+      </div>
   );
 }
 
