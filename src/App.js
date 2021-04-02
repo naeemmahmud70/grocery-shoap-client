@@ -7,7 +7,6 @@ import {
 import Home from './components/Home/Home';
 import Error from './components/Home/Error/Error';
 import Login from './components/Home/Login/Login';
-import Order from './components/Home/Order/Order';
 import Admin from './components/Home/Admin/Admin';
 import Header from './components/Home/Header/Header';
 import Product from './components/Product/Product';
@@ -39,7 +38,7 @@ function App() {
           </PrivateRoute>
 
           <Route path="/order">
-            <Order></Order>
+          <PlaceOrder></PlaceOrder>
           </Route>
 
           <Route path="/placeOrder">

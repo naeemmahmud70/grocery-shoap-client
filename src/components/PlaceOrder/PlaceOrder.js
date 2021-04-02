@@ -1,15 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
+import { UserContext } from '../../App';
 import Placed from '../Placed/Placed';
 
 
 const PlaceOrder = () => {
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext)
     const [orders, setOrders] = useState([]);
-    console.log(orders)
 
     useEffect(()=>{
-        fetch('http://localhost:5000/checkOut')
+        fetch('http://localhost:5000/checkOut?email='+loggedInUser.email)
         .then(res => res.json())
         .then(data => setOrders(data))
     },[])

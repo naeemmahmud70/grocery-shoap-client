@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useContext } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { UserContext } from '../../App';
-import PlaceOrder from '../PlaceOrder/PlaceOrder';
+
 
 
 const Product = () => {
