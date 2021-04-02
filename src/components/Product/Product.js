@@ -9,7 +9,6 @@ const Product = () => {
     const { id } = useParams();
     const [item, setItem] = useState({});
     const { name, price } = item;
-    console.log(name, price)
 
     const [loggedInUser, setLoggedInUser] = useContext(UserContext)
 
@@ -63,7 +62,7 @@ const Product = () => {
            
            
             <div className="d-flex justify-content-end">
-                <Link to="/placeOrder"><button onClick={handleCheckOut}>CheckOut</button></Link>
+                <Link to="/placeOrder"><button className="btn btn-success" onClick={handleCheckOut}>CheckOut</button></Link>
             </div>
     
             </div>

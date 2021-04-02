@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
 import DeleteProduct from '../../DeleteProduct/DeleteProduct';
+import './Admin.css'
 
 const Admin = () => {
     const { register, handleSubmit, watch, errors } = useForm();
@@ -45,11 +46,11 @@ const Admin = () => {
     }
     return (
         <div className="row">
-            <div className="col-md-6">
+            <div className="col-md-6 shadow p-2   mt-3">
                 <DeleteProduct></DeleteProduct>
             </div>
-            <div className="col-md-6">
-                <h3>Add product:</h3>
+            <div className="col-md-6 shadow p-3 mt-3">
+                <h3 className="text-success">Add product:</h3>
                 <hr/>
                 <form onSubmit={handleSubmit(onSubmit)}>
 

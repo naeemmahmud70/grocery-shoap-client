@@ -37,9 +37,9 @@ function App() {
             <Product></Product>
           </PrivateRoute>
 
-          <Route path="/order">
+          <PrivateRoute path="/order">
           <PlaceOrder></PlaceOrder>
-          </Route>
+          </PrivateRoute>
 
           <Route path="/placeOrder">
             <PlaceOrder></PlaceOrder>

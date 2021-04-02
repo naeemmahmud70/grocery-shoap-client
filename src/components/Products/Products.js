@@ -4,10 +4,9 @@ import './Products.css'
 
 const Products = (props) => {
     const {name, price, imageURL, _id} = props.product
-    console.log(name, price, imageURL, _id)
     return (
         <div>
-            <div className="product-div-style m-3">
+            <div className="product-div-style shadow m-3">
             <div className="image-div text-center p-2">
                 <img src={imageURL} alt="" />
                 <h3>{name}</h3>
@@ -15,10 +14,10 @@ const Products = (props) => {
             <hr />
             <div className="d-flex justify-content-around">
                 <div>
-                    <h3>${price}</h3>
+                    <h3 className="text-warning">${price}</h3>
                 </div>
                 <div>
-                    <Link to={"/product/"+_id}><button>Buy Now</button></Link>
+                    <Link to={"/product/"+_id}><button className="btn btn-success">Buy Now</button></Link>
                 </div>
             </div>
         </div>

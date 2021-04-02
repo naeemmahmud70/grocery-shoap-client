@@ -6,7 +6,7 @@ const DeleteProduct = () => {
         fetch('http://localhost:5000/products')
             .then(res => res.json())
             .then(data => setItem(data))
-    }, [])
+    }, [items])
 
     const handleDelete = (id) => {
         fetch(`http://localhost:5000/delete/${id}`, {
@@ -20,10 +20,10 @@ const DeleteProduct = () => {
 
     return (
         <div>
-            <h3>Mange products:</h3>
+            <h3 className="text-success">Mange products:</h3>
             <hr/>
             {
-                items.map(product => <h5>{product.name} <button onClick={() => handleDelete(product._id)} >Delete</button></h5>)
+                items.map(product => <h5>{product.name} <button className="btn btn-danger" onClick={() => handleDelete(product._id)} > Delete</button></h5>)
             }
         </div>
     );

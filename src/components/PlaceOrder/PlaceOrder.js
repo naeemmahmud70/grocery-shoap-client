@@ -13,7 +13,7 @@ const PlaceOrder = () => {
         fetch('http://localhost:5000/checkOut?email='+loggedInUser.email)
         .then(res => res.json())
         .then(data => setOrders(data))
-    },[])
+    })
     return (
         <div>
             {
